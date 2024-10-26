@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html LANG='en'>
+    <head>
+        <title>REGISTRATION PAGE</title>
+        <script>
+
+            function validateEmail(email) {
+                const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                return emailPattern.test(email);
+            }
+
+            function validateForm(){
+                var username = document.querySelector('input[name="name"]').value;
+                var email = document.querySelector('input[name="email"]').value;
+                var password = document.querySelector('input[name="password"]').value;
+                var confirm_password = document.querySelector('input[name="confirm_password"]').value;
+
+                if(!username.length){
+                    alert("Username can't be empty!");
+                    return false;
+                } 
+                if(!email.length){
+                    alert("Email can't be empty!");
+                    return false;
+                } 
+                if(!password.length){
+                    alert("Password can't be empty!");
+                    return false;
+                }
+                if(!confirm_password.length || password!==confirm_password){
+                    alert("Passwords aren't identical");
+                    return false;
+                }
+                if(!validateEmail(email)){
+                    alert("Please enter a valid email address!");
+                    return false;
+                }
+                return true;
+            }
+
+        </script>
+
+    </head>
+    <body>
+        <h2>Registration</h2>
+
+        <form action="/registration.php" method="POST" onsubmit="return validateForm()">
+            <label>Username:   </label>
+            <input type="text" name="name" placeholder="Enter Name">
+            <br><br>
+            <label>Email:   </label>
+            <input type="email" name="email" placeholder="Enter Email" >
+            <br><br>
+            <label>Password:    </label>
+            <input type="password" name="password" placeholder="Enter Password" >
+            <br><br>
+            <label>Confirm Password:    </label>
+            <input type="password" name="confirm_password" placeholder="Confirm Password" >
+            <br><br>
+            <button type="submit">GO</button>
+        </form>
+
+    </body>
+</html>
