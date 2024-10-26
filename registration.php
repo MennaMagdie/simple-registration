@@ -3,6 +3,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = trim($_POST['email']);
     $name = trim($_POST['name']);
     $password = trim($_POST['password']);
+    $password = md5($password);
 
     $conn = new mysqli("localhost", "root", "", "registration");
 
@@ -18,7 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($stmt->num_rows > 0) {
         echo "<script>
         alert('Email already exists');
-        window.location.href = 'lab4/registration.html';
+        window.location.href = 'registration.html';
             </script>";
     } else {
         $stmt = $conn->prepare("INSERT INTO user (email, name, password) VALUES (?, ?, ?)");

@@ -20,18 +20,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->bind_result($name, $storedPassword);
         $stmt->fetch();
 
-        if ($password === $storedPassword) {
+        if (md5($password) === $storedPassword) {
             echo "Welcome, " . htmlspecialchars($name) . "!";
         } else {
             echo "<script>
                     alert('Incorrect password!');
-                    window.location.href = 'lab4/login.html';
+                    window.location.href = 'login.html';
                   </script>";
            }
     } else {
         echo "<script>
         alert('No user registered with this email');
-        window.location.href = 'lab4/login.html';
+        window.location.href = 'login.html';
       </script>";
     }
 
