@@ -26,7 +26,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->bind_param("sss", $email, $name, $password);
 
         if ($stmt->execute()) {
-            echo "Registration successful!";
+            echo "<script>
+        alert('Successful Registration!');
+        window.location.href = 'index.html';
+            </script>";
         } else {
             echo "Error: " . $stmt->error;
         }
