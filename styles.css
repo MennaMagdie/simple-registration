@@ -1,0 +1,30 @@
+body { /*<-- selector*/
+    color: rgb(162, 26, 71);
+    /*property   :    value*/
+    background-color: rgb(236, 220, 220);
+    font-size: 18px;
+    text-align: center;
+    vertical-align: middle;
+
+}
+
+h1, h2 {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 2em;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 200px;
+}
+
+button {
+    background-color: rgb(162, 26, 71);
+    color: aliceblue;
+    font-weight: bold;
+    width: 100px;
+    height: 30px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;;
+}
+
+
+
+
